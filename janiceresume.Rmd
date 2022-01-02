@@ -1,0 +1,88 @@
+---
+name: Janice
+surname: Lee
+position: "Entry Level Data Analyst"
+address: "Palisades Park, NJ"
+phone: 2015608662
+profilepic: "/Desktop/propicjan.jpg"
+email: "jl7915@nyu.edu"
+github: jl7915
+linkedin: jl7915
+headcolor: 414141
+date: "`r format(Sys.time(), '%B %Y')`"
+aboutme: "Entry level data analytics professional; recently graduated college and completed the Google Data Analytics Professional Certificate. Seeking a full-time position for an opportunity to manipulate and interpret data with the intention of assisting in improving business performances by identifying trends and generating meaningful business insights."
+docname: janiceresume
+output: vitae::awesomecv
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+require(xfun)
+packages <- c("vitae"
+              ,"tibble"
+              ,"magrittr"
+              ,"here"
+              ,"readr"
+              ,"glue"
+              )
+xfun::pkg_attach2(packages, message= FALSE)
+source(file = here("r","resumedata.r"))
+```
+
+# Education
+
+```{r EDUCATION}
+education %>%
+  detailed_entries(
+    with = institution,
+    what = degree,
+    why = detail,
+    when = year,
+    where = where
+  )
+```
+
+# Technical Skills
+
+```{r TECHNICAL SKILLS}
+skills %>%
+  detailed_entries(
+    with = area,
+    what = skills
+  )
+```
+
+# Certifications
+
+```{r CERTIFICATIONS}
+certifications %>%
+  detailed_entries(
+    what = desc,
+    when = year
+  )
+```
+
+# Experience
+
+```{r EXPERIENCE}
+experience %>%
+  detailed_entries(
+    with = desc,
+    why = details,
+    when = year,
+    where = where
+  )
+```
+
+# Leadership and Other Activities
+
+```{r Activities}
+activities %>%
+  detailed_entries(
+    with = desc,
+    why = details,
+    when = year,
+    where = where
+  )
+```
+$ xelatex {janiceresume}.tex
