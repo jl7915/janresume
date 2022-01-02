@@ -85,4 +85,3 @@ activities %>%
     where = where
   )
 ```
-$ xelatex {janiceresume}.tex
